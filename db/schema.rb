@@ -17,14 +17,14 @@ ActiveRecord::Schema.define(version: 2018_06_04_204332) do
 
   create_table "boards", force: :cascade do |t|
     t.string "title"
-    t.integer "priority"
+    t.integer "priority", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "lists", force: :cascade do |t|
     t.string "title"
-    t.integer "priority"
+    t.integer "priority", default: 0
     t.bigint "board_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(version: 2018_06_04_204332) do
 
   create_table "tasks", force: :cascade do |t|
     t.text "body"
-    t.integer "priority"
+    t.integer "priority", default: 0
     t.bigint "list_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

@@ -4,9 +4,11 @@
 <hr />
 
 <ui>
-<% @boards.each do |board| %>
+<% @boards.by_title.each do |board| %>
 <li>
 <%= link_to "#{board.title}", board_path(board) %>
+<%= link_to "Edit", edit_board_path(board) %>
+<%= link_to 'Delete', board, method: :delete %>
 </li>
 <% end %>
 </ui>

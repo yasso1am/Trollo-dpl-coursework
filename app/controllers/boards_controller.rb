@@ -18,6 +18,8 @@ class BoardsController < ApplicationController
   def create
     @board = Board.new(board_params)
       if @board.save
+        @board.priority = @board.id
+        @board.save
         redirect_to board_path(@board), notice: 'Board created'
       else
         render :new
@@ -45,7 +47,7 @@ class BoardsController < ApplicationController
     end
 
     def board_params
-      params.require(:board).permit(:title)
+      params.require(:board).permit(:title, :priority)
     end
 
 

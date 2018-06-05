@@ -18,7 +18,7 @@ class ListsController < ApplicationController
 
   def create
     @list = @board.lists.new(list_params)
-      @max = @board.lists.maximum('priority')
+      max = @board.lists.maximum('priority')
         @list.priority = max + 1
       if @list.save
         redirect_to [@board, @list], notice: 'list created'
