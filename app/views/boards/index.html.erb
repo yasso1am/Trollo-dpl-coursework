@@ -1,2 +1,12 @@
-<h1>Boards#index</h1>
-<p>Find me in app/views/boards/index.html.erb</p>
+<h1> Board Index </h1>
+
+<%= link_to 'Create a new board', new_board_path %>
+<hr />
+
+<ui>
+<% @boards.each do |board| %>
+<li>
+<%= link_to "#{board.title}", board_path(board) %>
+</li>
+<% end %>
+</ui>
